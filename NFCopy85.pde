@@ -67,11 +67,11 @@ void setData(int value){                           //communication function!
 void loop(){
   blink(LED, 150, 3);
   nfc.AsTarget();                                  //in every loop, run as-target
-  nfc.getDataTarget();                             //clean PN532 buffer 
+  nfc.getDataTarget();                             //clear the PN532 buffer 
   for (int a=1; a<6; a++){
     setData(a);
     if (a == 5)                                    //bacause we already sent the needed data, 
-      setData(a);                                  //just sending couple errors to force the the transaction loop
+      setData(a);                                  //just sending couple errors to force the end of transaction loop
   }
   blink(LED, 50, 2);
   delay(1000);
